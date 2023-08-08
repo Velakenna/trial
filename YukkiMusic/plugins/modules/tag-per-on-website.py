@@ -76,12 +76,12 @@ async def tagme_handler(client, message: Message):
     filters.regex("open_me")
 )
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
-    print("Callback query received:", etho.message)
+    print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id    
 
     time_of_day = (TAGMES)
         
-    if time_of_day == "good morning":
+    if etho.message.text == "good morning":
         print("Morning button clicked!")
         await etho.edit_message_text(text="Getting your quote...")
         asyncio.sleep(2)
@@ -92,6 +92,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     else:
         print("Evening button clicked!")
         await etho.edit_message_text(text="Getting your joke...")
+        await asyncio.sleep(2)
         joke = get_random_joke()
         await etho.edit_message_text(
             text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
