@@ -75,14 +75,10 @@ async def tagme_handler(client, message: Message):
         pass
 
 @app.on_callback_query()
-async def on_open_me_button_click(client, callback_query):
-    print("Callback query received:", callback_query.message.text, callback_query.message.date)
-    chat_id = callback_query.message.chat.id
-    #time_of_day = "evening" if "good evening" in callback_query.message.text.lower() elif "morning"
-    if "good evening" in callback_query.message.text.lower():
-        time_of_day = "evening"
-    elif "good morning" in callback_query.message.text.lower():
-        time_of_day = "morning"
+async def on_open_me_button_click(client, callback_querys):
+    print("Callback query received:", callback_querys.message.text, callback_querys.message.date)
+    chat_id = callback_querys.message.chat.id
+    time_of_day = "evening" if "good evening" in callback_querys.message.text.lower() elif "morning"    
         
     if time_of_day == "morning":
         print("Morning button clicked!")
@@ -93,4 +89,4 @@ async def on_open_me_button_click(client, callback_query):
         joke = get_random_joke()
         await client.send_message(chat_id, f"Good evening! Here's a random joke:\n\n{joke}")
 
-    await callback_query.answer()
+    await callback_querys.answer()
