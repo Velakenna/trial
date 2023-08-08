@@ -51,8 +51,8 @@ async def tagme_handler(client, message: Message):
             continue
 
         usrnum += 1
-        #usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
-        usrtxt += f"{usr.user.mention}"
+        usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
+        #usrtxt += f"{usr.user.mention}"
 
         if usrnum == 1:
             markup = open_me_markup()            
