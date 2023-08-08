@@ -77,16 +77,9 @@ async def tagme_handler(client, message: Message):
 )
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message)
-    chat_id = etho.message.chat.id
-    try:
-        message_text = etho.message.text
-        user_name, query_message = message_text.split(": ", 1)  # Split only once
-        # Now you can use user_name and query_message in your code        
-    except:
-        print("could not split")
-        return
+    chat_id = etho.message.chat.id    
 
-    time_of_day = query_message.lower()     
+    time_of_day = {TAGMES}.lower()     
         
     if time_of_day == "good morning":
         print("Morning button clicked!")
