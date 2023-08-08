@@ -56,7 +56,7 @@ async def tagme_handler(client, message: Message):
 
         if usrnum == 1:
             markup = open_me_markup()
-            tag_message = f"{usr.user.mention} {random.choice(TAGMES)}"
+            tag_message = f"[{usr.user.first_name}](tg://user?id={usr.user.id}) {random.choice(TAGMES)}"
             await message.reply_text(tag_message, reply_markup=markup)
             
             
