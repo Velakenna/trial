@@ -9,7 +9,7 @@ from YukkiMusic import app
 
 
 @app.on_callback_query(
-    filters.regex("open_me")
+    filters.regex("^open_me$")
 )
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
