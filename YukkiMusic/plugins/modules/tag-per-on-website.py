@@ -81,7 +81,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
 
     time_of_day = (TAGMES)
         
-    if etho.message.text == "good morning":
+    if "good morning" in etho.message.text:
         print("Morning button clicked!")
         await etho.edit_message_text(text="Getting your quote...")
         asyncio.sleep(2)
