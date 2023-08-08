@@ -25,7 +25,7 @@ async def on_open_me_button_click(_, etho: Union[types.Message, types.CallbackQu
         await etho.edit_message_text(            
             text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
         )
-    else:
+    elif:
         print("Evening button clicked!")
         #await etho.answer("Getting your joke...", show_alert=False)
         await etho.edit_message_text(text="Getting your joke...")
