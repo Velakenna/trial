@@ -86,7 +86,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     chat_id = etho.message.chat.id
     user_id = etho.from_user.id
     
-    if global_usr == user_id:
+    if usr == user_id:
         if "good morning" in etho.message.text:
             print("Morning button clicked!")
             await etho.edit_message_text(text="Getting your quote...")
