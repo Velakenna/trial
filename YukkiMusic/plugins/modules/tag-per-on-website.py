@@ -82,14 +82,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
         
     if time_of_day == "morning":
         print("Morning button clicked!")
-        await etho.answer("Getting your quote...", show_alert=False)
+        await etho.edit_message_text(text="Getting your quote...")
+        asyncio.sleep(2)
         quote = get_random_quote()
         await etho.edit_message_text(            
             text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
         )
     else:
         print("Evening button clicked!")
-        await etho.answer("Getting your joke...", show_alert=False)
+        await etho.edit_message_text(text="Getting your joke...")
         joke = get_random_joke()
         await etho.edit_message_text(
             text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
