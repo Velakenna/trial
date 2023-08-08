@@ -84,9 +84,11 @@ async def tagme_handler(client, message: Message):
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
-    user_id = etho.from_user.id
+    user_name = etho.from_user.first_name
+    message_text = etho.message.text
+    usr, query_message = message_text.split(": ", 1)  # Split only once
     
-    if usr == user_id:
+    if usr == user_name:
         if "good morning" in etho.message.text:
             print("Morning button clicked!")
             await etho.edit_message_text(text="Getting your quote...")
