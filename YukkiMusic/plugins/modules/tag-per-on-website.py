@@ -90,6 +90,13 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(            
                 text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
             )
+
+        elif "good night" in etho.message.text:
+            print("Night button clicked!")
+            await etho.edit_message_text(text="Getting your message...")
+            await asyncio.sleep(2)
+            await etho.edit_message_text(text="Good night ghost dreams!")
+            
         else:
             print("Evening button clicked!")
             await etho.edit_message_text(text="Getting your joke...")
