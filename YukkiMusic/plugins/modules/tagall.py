@@ -230,12 +230,11 @@ async def tagme_handler(client, message: Message):
                           reply_markup=markup
                 )
             elif mode == "text_on_reply":
-                markup = InlineKeyboardMarkup(
-                       [
-                              [InlineKeyboardButton(text="Blast!",callback_data="blast")]
-                       ]
+                markup = blast_mark_up()                       
+                await message.reply_text(
+                          f"{random.choice(EMOJI)} {usrtxt}", 
+                          reply_markup=markup
                 )
-                await msg.reply(f"{random.choice(EMOJI)} {usrtxt}", reply_markup=markup)
 
             # Generate a random sleep time between 10 and 30 seconds(0 and 5 seconds)
             sleep_time = random.randint(0, 5)
