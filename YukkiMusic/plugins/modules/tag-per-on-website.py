@@ -1,3 +1,4 @@
+import datetime
 from YukkiMusic import app
 import random
 import asyncio
@@ -32,7 +33,19 @@ def get_random_joke():
     return f"{data['setup']}\n{data['punchline']}"
 
 @app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@"]))
-async def tagme_handler(client, message: Message):    
+async def tagme_handler(client, message: Message):
+    # Get the current time
+    current_time = datetime.datetime.now().time()
+    # Determine the appropriate tag message based on the time of day
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(10, 0):
+        msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
+    elif current_time >= datetime.time(10, 0) and current_time < datetime.time(15, 0):
+        msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
+    elif current_time >= datetime.time(15, 0) and current_time < datetime.time(20, 0):
+        msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
+    else:
+        msg = random.choice(TAGMES) + " " + EMOJI[1]  # Good night
+    
     chat_id = message.chat.id
     if chat_id in spam_chats:
         await message.reply("The tagme command is already running in this chat.")
