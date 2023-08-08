@@ -189,7 +189,7 @@ async def tagme_handler(client, message: Message):
         return
 
     if message.reply_to_message and message.text:
-        return await message.reply("/tagme ** ᴛʀʏ ᴛʜɪs ɴᴇxᴛ ᴛɪᴍᴇ ғᴏʀ ᴛᴀɢɢɪɴɢ...*")
+        return await message.reply("/tagme ** ᴛʀʏ ᴛʜɪs ɴᴇxᴛ ᴛɪᴍᴇ uh ғᴏʀ ᴛᴀɢɢɪɴɢ...*")
     elif message.text:
         mode = "text_on_cmd"
         msg = message.text
