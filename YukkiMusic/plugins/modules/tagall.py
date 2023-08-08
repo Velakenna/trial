@@ -230,7 +230,7 @@ async def tagme_handler(client, message: Message):
                           reply_markup=markup
                 )
             elif mode == "text_on_reply":
-                await message.delete()
+                #await message.delete()
                 markup = blast_markup()                       
                 await msg.reply_text(
                           f"[{random.choice(EMOJI)}](tg://user?id={usr.user.id})", 
@@ -250,11 +250,11 @@ async def tagme_handler(client, message: Message):
         pass
 
 @app.on_callback_query()
-async def on_callback_query(client, event):
-    print("Callback query received:", event.data)
-    if event.data == "blast":
+async def on_callback_query(client, events):
+    print("Callback query received:", events.data)
+    if events.data == "blast":
               print("Blast button clicked!")
-              morning_quote = f"Good morning {event.from_user.mention}! Here's a beautiful quote to start your day:\n\n""Life is what happens when you're busy making other plans. - John Lennon"                             
-              await event.answer()
-              await event.message.edit_text(morning_quote)              
+              morning_quote = f"Good morning {events.from_user.mention}! Here's a beautiful quote to start your day:\n\n""Life is what happens when you're busy making other plans. - John Lennon"                             
+              await events.answer(f"Getting..")
+              await events.message.edit_text(morning_quote)              
              
