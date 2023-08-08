@@ -79,7 +79,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     print("Callback query received:", etho.message)
     chat_id = etho.message.chat.id    
 
-    time_of_day = {TAGMES}.lower()     
+    time_of_day = (TAGMES).lower()     
         
     if time_of_day == "good morning":
         print("Morning button clicked!")
