@@ -2,6 +2,8 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 
+from typing import Union
+
 from YukkiMusic import app
 
 
