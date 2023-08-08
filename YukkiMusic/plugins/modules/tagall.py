@@ -249,7 +249,7 @@ async def tagme_handler(client, message: Message):
     except:
         pass
 
-@app.on_callback_query()
+@app.on_callback_query(filters.regex("^blast$"))
 async def on_callback_query(client, events):
     print("Callback query received:", events.data)
     if events.data == "blast":
