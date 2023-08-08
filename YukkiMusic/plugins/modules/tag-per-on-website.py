@@ -82,6 +82,7 @@ async def on_open_me_button_click(client, callback_querys):
         
     if time_of_day == "morning":
         print("Morning button clicked!")
+        chat_id = callback_querys.chat.id
         quote = get_random_quote()
         await callback_querys.edit_message_text(
             chat_id=chat_id, 
