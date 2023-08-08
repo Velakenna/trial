@@ -199,8 +199,8 @@ async def tagme_handler(client, message: Message):
         msg = await event.get_reply_message()
         if not msg:
             return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs**")
-    else:
-        return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs ᴏʀ ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ...**")
+    #else:
+        #return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs ᴏʀ ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ...**")
               
     spam_chats.append(chat_id)
     usrnum = 0
