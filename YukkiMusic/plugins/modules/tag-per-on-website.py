@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from YukkiMusic.plugins.modules.blast import open_me_markup
+from typing import union
 
 
 spam_chats = []
