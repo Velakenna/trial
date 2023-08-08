@@ -25,14 +25,14 @@ async def on_open_me_button_click(_, etho: Union[types.Message, types.CallbackQu
         await etho.edit_message_text(            
             text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
         )
-    elif:
-        print("Evening button clicked!")
-        #await etho.answer("Getting your joke...", show_alert=False)
-        await etho.edit_message_text(text="Getting your joke...")
-        await asyncio.sleep(3)
-        joke = get_random_joke()
-        await etho.edit_message_text(
-            text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
-        )
+    elif print("Evening button clicked!")
+         #await etho.answer("Getting your joke...", show_alert=False)
+         await etho.edit_message_text(text="Getting your joke...")
+         await asyncio.sleep(3)
+         joke = get_random_joke()
+         await etho.edit_message_text(
+             text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
+         )
+        
 
     await etho.answer()
