@@ -76,10 +76,10 @@ async def tagme_handler(client, message: Message):
     filters.regex("open_me")
 )
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
-    print("Callback query received:", message.text)
+    print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
     try:
-        message_text = callback_query.message.text
+        message_text = etho.message.text
         user_name, query_message = message_text.split(": ", 1)  # Split only once
         # Now you can use user_name and query_message in your code        
     except:
