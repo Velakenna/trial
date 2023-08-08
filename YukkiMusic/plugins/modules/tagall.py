@@ -181,26 +181,30 @@ TAGMES = ["hi", "hello", "good morning", "good evening", "good night", "yellarum
 EMOJI = ["😊", "👋", "🌞", "🌙","❤️", "💚", "💙", "💜", "🖤"]
 
 
-@app.on_message(filters.command(["tagme"], prefixes=["/", "@", "!"]))
+#@app.on_message(filters.command(["tagme"], prefixes=["/", "@", "!"]))
+@app.on_message(filters.regex(r'^/tagme ?(.*)'))
 async def tagme_handler(client, message: Message):
     chat_id = message.chat.id
     if chat_id in spam_chats:
         await message.reply("The tagme command is already running in this chat.")
         return
 
-    if message.reply_to_message and message.text:
+    #if message.reply_to_message and message.text:
+    if message.matches[0].group(1) and message.reply_to_message:
         return await message.reply("/tagme ** ᴛʀʏ ᴛʜɪs ɴᴇxᴛ ᴛɪᴍᴇ uh ғᴏʀ ᴛᴀɢɢɪɴɢ...*")
-    elif message.text:
+    #elif message.text:
+    elif message.matches[0].group(1):
         mode = "text_on_cmd"
-        msg = message.text
-    elif message.is_reply: # message.reply_to_message
+        #msg = message.text
+        msg = message.matches[0].group(1)
+    elif message.reply_to_message:
         mode = "text_on_reply"
         #msg = message.reply_to_message
         msg = await event.get_reply_message()
-        if not msg:
-            return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs**")
-    #else:
-        #return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs ᴏʀ ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ...**")
+        if msg is None:
+            return await message.reply("I cannot mention msgs sent before I was added in group")
+    else:
+        return await message.reply("Reply to message or give me a message for mentioning")
               
     spam_chats.append(chat_id)
     usrnum = 0
