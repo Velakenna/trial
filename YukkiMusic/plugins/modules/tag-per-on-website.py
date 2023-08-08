@@ -55,11 +55,13 @@ async def tagme_handler(client, message: Message):
         #usrtxt += f"{usr.user.mention}"
 
         if usrnum == 1:
-            markup = open_me_markup()            
-            await message.reply_text(
-                f"{usrtxt} {random.choice(TAGMES)}", 
-                reply_markup=markup
-            )
+            markup = open_me_markup()
+            tag_message = f"{usrtxt} {random.choice(TAGMES)}"
+            await message.reply_text(tag_message, reply_markup=markup)
+
+            # Store the tagged users' IDs and tag message in a dictionary
+            tagged_users = {u.user.id: tag_message for u in (await client.get_chat_members(chat_id)) if not u.user.is_bot}
+            
             # Generate a random sleep time between 10 and 30 seconds
             sleep_time = random.randint(0, 5)
             await asyncio.sleep(sleep_time)
@@ -77,27 +79,30 @@ async def tagme_handler(client, message: Message):
 )
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
-    chat_id = etho.message.chat.id    
+    chat_id = etho.message.chat.id
+    user_id = etho.from_user.id
 
-    time_of_day = (TAGMES)
-        
-    if "good morning" in etho.message.text:
-        print("Morning button clicked!")
-        await etho.edit_message_text(text="Getting your quote...")
-        await asyncio.sleep(2)
-        quote = get_random_quote()
-        await etho.edit_message_text(            
-            text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
-        )
+    tagged_users = {u.user.id: u for u in (await client.get_chat_members(chat_id)) if not u.user.is_bot}
+
+    if user_id in tagged_users:
+        tag_message = tagged_users[user_id].user.mention
+        if tag_message in etho.message.text:
+            if "good morning" in etho.message.text:
+                await etho.edit_message_text(text="Getting your quote...")
+                await asyncio.sleep(2)
+                quote = get_random_quote()
+                await etho.edit_message_text(
+                    text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
+                )
+            else:
+                await etho.edit_message_text(text="Getting your joke...")
+                await asyncio.sleep(2)
+                joke = get_random_joke()
+                await etho.edit_message_text(
+                    text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
+                )
+            await etho.answer()
+        else:
+            await etho.answer("Sorry, this tag message is not for you.")
     else:
-        print("Evening button clicked!")
-        await etho.edit_message_text(text="Getting your joke...")
-        await asyncio.sleep(2)
-        joke = get_random_joke()
-        await etho.edit_message_text(
-            text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
-        )
-
-    await etho.answer()
-
-
+        await etho.answer("Sorry, this tag message is not for you.")
