@@ -83,7 +83,7 @@ async def on_open_me_button_click(client, callback_querys):
     if time_of_day == "morning":
         print("Morning button clicked!")
         quote = get_random_quote()
-        await callback_querys.edit_message(chat_id, f"Good morning! Here's a random quote:\n\n{quote}")
+        await callback_querys.edit_message_text(chat_id, f"Good morning! Here's a random quote:\n\n{quote}")
     else:
         print("Evening button clicked!")
         joke = get_random_joke()
