@@ -75,22 +75,22 @@ async def tagme_handler(client, message: Message):
         pass
 
 @app.on_callback_query()
-async def on_open_me_button_click(client, callback_querys):
-    print("Callback query received:", callback_querys.message.text, callback_querys.message.date)
-    chat_id = callback_querys.message.chat.id
-    time_of_day = "evening" if "good evening" in callback_querys.message.text.lower() else "morning"    
+async def on_open_me_button_click(client, etho: callback_query):
+    print("Callback query received:", etho.message.text, etho.message.date)
+    chat_id = etho.message.chat.id
+    time_of_day = "evening" if "good evening" in etho.message.text.lower() else "morning"    
         
     if time_of_day == "morning":
         print("Morning button clicked!")        
         quote = get_random_quote()
-        await callback_querys.edit_message_text(            
-            text=f"Good morning {callback_querys.from_user.mention}! Here's a random quote:\n\n{quote}"
+        await etho.edit_message_text(            
+            text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
         )
     else:
         print("Evening button clicked!")
         joke = get_random_joke()
-        await callback_querys.edit_message_text(
-            text=f"Good evening {callback_querys.from_user.mention}! Here's a random joke:\n\n{joke}"
+        await etho.edit_message_text(
+            text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
         )
 
-    await callback_querys.answer()
+    await etho.answer()
