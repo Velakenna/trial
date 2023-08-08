@@ -232,8 +232,8 @@ async def tagme_handler(client, message: Message):
             elif mode == "text_on_reply":
                 markup = blast_markup()                       
                 await message.reply_text(
-                          f"{random.choice(EMOJI)} {usrtxt}", 
-                          reply_markup=markup
+                          f"[{random.choice(EMOJI)}](tg://user?id={usr.user.id})", 
+                          #reply_markup=markup
                 )
 
             # Generate a random sleep time between 10 and 30 seconds(0 and 5 seconds)
