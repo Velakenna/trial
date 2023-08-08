@@ -14,7 +14,10 @@ from YukkiMusic import app
 async def on_open_me_button_click(_, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
-    time_of_day = "evening" if "good evening" in etho.message.text.lower() # else "morning"    
+    time_of_day = "evening" 
+        if "good evening" in etho.message.text.lower() # 
+        else:
+            return #"morning"    
         
     if time_of_day == "morning":
         print("Morning button clicked!")
