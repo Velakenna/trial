@@ -193,9 +193,10 @@ async def tagme_handler(client, message: Message):
     elif message.text:
         mode = "text_on_cmd"
         msg = message.text
-    elif message.reply_to_message:
+    elif message.is_reply: # message.reply_to_message
         mode = "text_on_reply"
-        msg = message.reply_to_message
+        #msg = message.reply_to_message
+        msg = await event.get_reply_message()
         if not msg:
             return await message.reply("/tagme **ᴛʀʏ ᴛʜɪs**")
     else:
