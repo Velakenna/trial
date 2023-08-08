@@ -3,15 +3,12 @@ import random
 import asyncio
 import requests
 from pyrogram import Client, filters
-from pyrogram.types import Message 
+from pyrogram.types import Message, CallbackQuery
 from bs4 import BeautifulSoup
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from YukkiMusic.plugins.modules.blast import open_me_markup
 
-# Assuming you have defined the bot and dispatcher objects for the Telegram bot
-bot = Bot(token="5327660504:AAHPaqv8Z-_nFAAlkSLF-1_oE6i2g-gJ6JI")
-dp = Dispatcher(bot)
 
 spam_chats = []
 
@@ -75,7 +72,7 @@ async def tagme_handler(client, message: Message):
         pass
 
 @app.on_callback_query()
-async def on_open_me_button_click(client, etho: Callback_query):
+async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text, etho.message.date)
     chat_id = etho.message.chat.id
     time_of_day = "evening" if "good evening" in etho.message.text.lower() else "morning"    
