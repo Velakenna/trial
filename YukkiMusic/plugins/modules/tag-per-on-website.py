@@ -10,8 +10,6 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from YukkiMusic.plugins.modules.blast import open_me_markup
 from typing import Union
 
-global_usr = None  # Global variable to store user information
-
 spam_chats = []
 
 #TAGMES = ["hi", "hello", "good morning", "good evening", "good night"]
@@ -34,9 +32,7 @@ def get_random_joke():
     return f"{data['setup']}\n{data['punchline']}"
 
 @app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@"]))
-async def tagme_handler(client, message: Message):
-    global global_usr 
-    
+async def tagme_handler(client, message: Message):    
     chat_id = message.chat.id
     if chat_id in spam_chats:
         await message.reply("The tagme command is already running in this chat.")
@@ -62,9 +58,7 @@ async def tagme_handler(client, message: Message):
             markup = open_me_markup()
             tag_message = f"{usr.user.mention} {random.choice(TAGMES)}"
             await message.reply_text(tag_message, reply_markup=markup)
-
-            # Store the tagged users' IDs and tag message in a dictionary
-            tagged_users = {u.user.id: tag_message for u in (await client.get_chat_members(chat_id)) if not u.user.is_bot}
+            
             
             # Generate a random sleep time between 10 and 30 seconds
             sleep_time = random.randint(0, 5)
@@ -85,8 +79,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
     user_name = etho.from_user.first_name
-    message_text = etho.message.text
-    #usr, query_message = message_text.split(": ", 1)  # Split only once
+    message_text = etho.message.text    
     
     if user_name in etho.message.text:
         if "good morning" in etho.message.text:
