@@ -231,7 +231,7 @@ async def tagme_handler(client, message: Message):
                 )
             elif mode == "text_on_reply":
                 markup = blast_markup()                       
-                await message.reply_text(
+                await msg.reply_text(
                           f"[{random.choice(EMOJI)}](tg://user?id={usr.user.id})", 
                           #reply_markup=markup
                 )
