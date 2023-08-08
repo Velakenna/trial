@@ -78,7 +78,7 @@ async def tagme_handler(client, message: Message):
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text, etho.message.date)
     chat_id = etho.message.chat.id
-    time_of_day = "evening" if "good evening" in etho.message.text.lower() else "morning"    
+    time_of_day = etho.message.text.lower()     
         
     if time_of_day == "morning":
         print("Morning button clicked!")
