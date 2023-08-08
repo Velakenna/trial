@@ -200,7 +200,7 @@ async def tagme_handler(client, message: Message):
     elif message.reply_to_message:
         mode = "text_on_reply"
         #msg = message.reply_to_message
-        msg = await app.get_reply_message()
+        msg = await app.get_messages(message.chat.id, message.reply_to_message.message_id)
         if msg is None:
             return await message.reply("I cannot mention msgs sent before I was added in group")
     else:
