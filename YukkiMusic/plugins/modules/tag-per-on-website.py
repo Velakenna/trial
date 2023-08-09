@@ -53,7 +53,7 @@ def get_random_news():
         source = random_article['source']['name']
         url = random_article['url']
         
-        news_info = f"Title: {title}\n\nURL: [Click here]({url})"
+        news_info = f"Title: {title}\n\nURL: [Full article here!]({url})"
         return news_info
     else:
         return "Unable to fetch random news article.Better luck next time"
