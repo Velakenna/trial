@@ -86,7 +86,7 @@ async def tagme_handler(client, message: Message):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"😊 Good afternoon"
         markup = surprise_markup()
-    elif current_time >= datetime.time(19, 30) and current_time < datetime.time(20, 00):
+    elif current_time >= datetime.time(22, 30) and current_time < datetime.time(23, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"👋 Good evening"
         markup = click_me_markup()
