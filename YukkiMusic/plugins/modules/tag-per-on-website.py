@@ -82,11 +82,11 @@ async def tagu_handler(client, message: Message):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"🌞 Good morning"
         markup = open_me_markup()
-    elif current_time >= datetime.time(22, 41) and current_time < datetime.time(23, 00):
+    elif current_time >= datetime.time(22, 41) and current_time < datetime.time(22, 43):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"😊 Good afternoon"
         markup = surprise_markup()
-    elif current_time >= datetime.time(23, 00) and current_time < datetime.time(24, 00):
+    elif current_time >= datetime.time(22, 43) and current_time < datetime.time(24, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"👋 Good evening"
         markup = click_me_markup()
@@ -172,7 +172,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="waittt! Vanthuduchi 🙈 ◉   ╾╤╦")
             await asyncio.sleep(0.5)            
             comment = random.choice(COMMENTS)
-            await etho.edit_message_text(text=f"Matinee show vanakkam\n{etho.from_user.mention}\n┃\n╰━➮{comment}")
+            await etho.edit_message_text(text=f"Matinee show vanakkam\n{etho.from_user.mention}\n┃\n╰━➮ {comment}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
