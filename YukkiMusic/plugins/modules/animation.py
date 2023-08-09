@@ -9,14 +9,14 @@ def generate_animation(effect):
   effect = random.choice(["flowers", "rockets", "rain", "leaves", "snow", "bombs"]) 
  
     # Create the animation 
-    if effect == "flowers": 
+  if effect == "flowers": 
         animation = [ 
             {"x": 0, "y": 0, "duration": 1}, 
             {"x": 100, "y": 0, "duration": 2}, 
             {"x": 0, "y": 100, "duration": 3}, 
             {"x": 100, "y": 100, "duration": 4}, 
         ] 
-    elif effect == "rockets": 
+  elif effect == "rockets": 
         animation = [ 
             {"x": 0, "y": 0, "duration": 1}, 
             {"x": 100, "y": 0, "duration": 2}, 
@@ -27,26 +27,26 @@ def generate_animation(effect):
             {"x": 100, "y": 300, "duration": 7}, 
             {"x": 0, "y": 400, "duration": 8}, 
         ] 
-    elif effect == "rain": 
+  elif effect == "rain": 
         animation = [ 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
         ] * 100 
-    elif effect == "leaves": 
+  elif effect == "leaves": 
         animation = [ 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
         ] * 100 
-    elif effect == "snow": 
+  elif effect == "snow": 
         animation = [ 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
         ] * 100 
-    elif effect == "bombs": 
+  elif effect == "bombs": 
         animation = [ 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
-        ] 
+        ]  
 
 # Command to start the bot
 @app.on_message(filters.command("magic"))
