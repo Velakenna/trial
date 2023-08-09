@@ -35,25 +35,12 @@ def get_random_news():
     else:
         return "Unable to fetch random news article.Better luck next time"
 
-
-def get_random_tamil_quote():
-    url = "https://api.thirukkural.io/random"
-    response = requests.get(url)
-    data = response.json()
-    return f"{data['kural']['ta']}\n- {data['kural']['chap']}.{data['kural']['sect']}"
-
 def get_random_quote():
     url = "https://quotes.toscrape.com/random"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     quote = soup.find("span", class_="text").text.strip()    
     return f"{quote}"
-    
-def get_random_tamil_joke():
-    url = "https://panotbook.com/kadi-jokes-in-tamil-with-answers/"
-    response = requests.get(url)
-    data = response.json()
-    return f"{data['setup']}\n{data['delivery']}"
 
 def get_random_joke():
     url = "https://official-joke-api.appspot.com/random_joke"
