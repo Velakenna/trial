@@ -20,7 +20,7 @@ EMOJI = ["😊", "👋", "🌞", "🌙"]
 # Function to get a random country fact
 def get_random_country_fact():
     url = "https://restcountries.com/v3.1/all"
-    response = app.http.get(url)
+    response = requests.get(url)
     countries = response.json()
 
     if countries:
