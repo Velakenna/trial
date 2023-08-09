@@ -17,6 +17,20 @@ spam_chats = []
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
+# Function to get a random country fact
+def get_random_country_fact():
+    url = "https://restcountries.com/v3.1/all"
+    response = app.http.get(url)
+    countries = response.json()
+
+    if countries:
+        random_country = random.choice(countries)
+        name = random_country['name']['common']
+        fact = random_country.get('translations', {}).get('eng', 'No fact available for this country.')
+        return f"Country: {name}\nFact: {fact}"
+    else:
+        return "No countries data available."
+
 def get_random_news():    
     url = "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"    
     response = requests.get(url)
@@ -120,36 +134,30 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             print("Morning button clicked!")
             await etho.edit_message_text(text="Getting your quote...")
             await asyncio.sleep(2)
+            joke = get_random_joke()
             quote = get_random_quote()
-            await etho.edit_message_text(            
-                text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
-            )
+            await etho.edit_message_text(text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{joke}")
 
         elif "good afternoon" in etho.message.text.lower():
             print("Afternoon button clicked!")
             await etho.edit_message_text(text="Getting your afternoon joke...")
             await asyncio.sleep(2)
             ta_joke = get_random_tamil_joke()
-            await etho.edit_message_text(
-                text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")
+            await etho.edit_message_text(text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")
 
         elif "good night" in etho.message.text.lower():
             print("Night button clicked!")
-            await etho.edit_message_text(text="Getting your night message...")
-            await asyncio.sleep(2)
-            #ta_quote = get_random_tamil_quote()
-            random_news = get_random_news()
-            await etho.edit_message_text(
-                text=f"Good night {etho.from_user.mention}! Here's a random news\n\n{random_news}")
+            await etho.edit_message_text(text="Getting your night facts...")
+            await asyncio.sleep(2)            
+            facts = get_random_country_fact()
+            await etho.edit_message_text(text=f"Good night {etho.from_user.mention}! Here's a random fact\n\n{random_news}")
             
         else:
             print("Evening button clicked!")
-            await etho.edit_message_text(text="Getting your joke...")
+            await etho.edit_message_text(text="Getting your evening news...")
             await asyncio.sleep(2)
-            joke = get_random_joke()
-            await etho.edit_message_text(
-                text=f"Good evening {etho.from_user.mention}! Here's a random joke:\n\n{joke}"
-            )
+            random_news = get_random_news()
+            await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{joke}")
 
         await etho.answer()
 
