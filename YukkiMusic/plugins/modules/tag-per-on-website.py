@@ -1,4 +1,5 @@
 import datetime
+import pytz
 from YukkiMusic import app
 import random
 import asyncio
@@ -34,8 +35,10 @@ def get_random_joke():
 
 @app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@"]))
 async def tagme_handler(client, message: Message):
+    # Set the desired time zone
+    tz = pytz.timezone('Asia/Kolkata')
     # Get the current time
-    current_time = datetime.datetime.now().time()
+    current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
     if current_time >= datetime.time(4, 0) and current_time < datetime.time(10, 0):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
