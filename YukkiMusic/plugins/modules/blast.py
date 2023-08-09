@@ -23,8 +23,7 @@ def open_me_markup():
                 InlineKeyboardButton(
                     text=("Open me!"),
                     callback_data=f"open_me",
-                    color="#ff0000",
-                    text_color="#0000ff"
+                    style="primary"
                 )
             ]
         ]
