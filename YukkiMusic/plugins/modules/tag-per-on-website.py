@@ -17,9 +17,10 @@ spam_chats = []
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
-def get_random_news():
+def get_random_news(categories):
+    selected_category = random.choice(categories)
     #url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
-    url = "https://newsapi.org/v2/top-headlines?country=in&category={selected_category}&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"
+    url = "https://newsapi.org/v2/top-headlines?country=in&category={selected_category}&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"    
     response = requests.get(url)
     data = response.json()
 
