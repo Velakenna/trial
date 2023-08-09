@@ -26,7 +26,7 @@ def get_random_country_fact():
     if countries:
         random_country = random.choice(countries)
         name = random_country['name']['common']
-        fact = random_country.get('translations', {}).get('eng', 'No fact available for this country.')
+        fact = random_country.get('translations', {}).get('eng')
         return f"Country: {name}\nFact: {fact}"
     else:
         return "No countries data available."
