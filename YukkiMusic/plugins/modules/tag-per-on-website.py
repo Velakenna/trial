@@ -19,7 +19,7 @@ EMOJI = ["😊", "👋", "🌞", "🌙"]
 
 def get_random_news():
     #url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
-    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"
+    url = "https://newsapi.org/v2/top-headlines?country=in&category={selected_category}&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"
     response = requests.get(url)
     data = response.json()
 
@@ -31,10 +31,11 @@ def get_random_news():
         source = random_article['source']['name']
         url = random_article['url']
 
-        news_info = f"Title: {title}\nSource: {source}\nDescription: {description}\nURL: {url}"
+        news_info = f"Title: {title}\n\nCategory: {selected_category}\nSource: {source}\n\nURL: {url}"
         return news_info
     else:
-        return "Unable to fetch random news article.Better luck next time"        
+        return "Unable to fetch random news article.Better luck next time"
+desired_categories = ['technology', 'business', 'science']  # Specify the desired categories
 
 def get_random_tamil_quote():
     url = "https://api.thirukkural.io/random"
@@ -151,7 +152,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Getting your night message...")
             await asyncio.sleep(2)
             #ta_quote = get_random_tamil_quote()
-            random_news = get_random_news()
+            random_news = get_random_news(desired_categories)
             await etho.edit_message_text(
                 text=f"Good night {etho.from_user.mention}! Here's a random Tamil quote\n\n{random_news}")
             
