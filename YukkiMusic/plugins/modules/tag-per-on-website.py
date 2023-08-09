@@ -152,7 +152,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     else:
         await etho.answer("Sorry this button is not for you")
 
-@app.on_callback_query(filters.regex("click_me"))
+@app.on_callback_query(filters.regex("close_me"))
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
@@ -175,7 +175,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     else:
         await etho.answer("Sorry this button is not for you")
 
-@app.on_callback_query(filters.regex("close_me"))
+@app.on_callback_query(filters.regex("click_me"))
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
     print("Callback query received:", etho.message.text)
     chat_id = etho.message.chat.id
