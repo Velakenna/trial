@@ -84,7 +84,7 @@ async def tagme_handler(client, message: Message):
         if usr.user.is_bot:
             continue
 
-        usrnum += 1
+        usrnum += 2
         usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
         #usrtxt += f"{usr.user.mention}"
 
