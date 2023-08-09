@@ -84,11 +84,11 @@ async def tagme_handler(client, message: Message):
         if usr.user.is_bot:
             continue
 
-        usrnum += 2
+        usrnum += 1
         usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
         #usrtxt += f"{usr.user.mention}"
 
-        if usrnum == 1:
+        if usrnum == 2:
             markup = open_me_markup()
             tag_message = f"[{usr.user.first_name}](tg://user?id={usr.user.id}) {msg}"
             await message.reply_text(tag_message, reply_markup=markup)
