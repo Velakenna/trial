@@ -142,9 +142,9 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good morning" in etho.message.text.lower():
             print("Morning button clicked!")
-            await etho.edit_message_text(text="Unga gift vandhutey irukku   ◉ ╾╤╦")
+            await etho.edit_message_text(text="Unga gift varuthu   ◉ ╾╤╦")
             await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Unga gift vandhutey irukku ◉   ╾╤╦")
+            await etho.edit_message_text(text="Unga gift varuthu ◉   ╾╤╦")
             await asyncio.sleep(0.5)   
             joke = get_random_joke()            
             await etho.edit_message_text(text=f"Kaalai vanakkam ley {etho.from_user.mention}!\nUngalukaana siripu vaithiyam itho 😁:\n\n{joke}")
