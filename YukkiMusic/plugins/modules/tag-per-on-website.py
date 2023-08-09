@@ -17,6 +17,29 @@ spam_chats = []
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
+COMMENTS = [
+"saptiya nee - 1",
+"yenna soru thina - 2",
+"yennaku kodukama sapudura nee lam nalla irrupa - 3",
+"sari nalla toongitu work parru  - 20",
+"dei last bench kara toongatha da 😮‍💨 - 4 ",
+"nalla saptu saptu toonguran pare 😬 - 5 ",
+"ipo nee yelunthukula nu vei 🫣 - 8",
+"Yun left side la parru un crush irrukanga - 9 ",
+"sari toongu kanavula un crush varum 😝😅 - 10 ",
+"nalla sapta pola inga varikum kekuthu yaepom 🙈😃 - 6 ",
+"dei nalavaneee yelunthudu da - 7" ,
+"sari sari toongunathu pothum velaiya parru - 11 ",
+"innoruka polam variya sorru thinga - 12" ,
+"sari oru tips solluren - toongama irruka - 13 ",
+"pakathula work la un crush irruntha.. manager ku theriyama sight adey 🤧",
+"sari sari parthathu pothum ipo parru nalla mandaila yerum 🫥 - 16",
+"ninachen , yenna da kannu vera yengaiyo poguthu nu  😂 - 17",
+"sari work pandra pasanga luku - meeting nu yulla poidunga 😃 - 18",
+"AC la semaiya toongalam 🙈 - 19 ",
+"Aaga inniku mudinzichi tipss hu ! Varaataahhhh 🏃‍♂️ - 21",
+]
+
 def get_random_news():    
     url = "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"    
     response = requests.get(url)
@@ -93,7 +116,7 @@ async def tagme_handler(client, message: Message):
         #usrtxt += f"{usr.user.mention}"
 
         if usrnum == 1:            
-            tag_message = f"{msg} [{usr.user.first_name}](tg://user?id={usr.user.id})"
+            tag_message = f"{msg}\n[{usr.user.first_name}](tg://user?id={usr.user.id})"
             await message.reply_text(tag_message, reply_markup=markup)
             
             
@@ -145,7 +168,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Getting your surprise...")
             await asyncio.sleep(2)
             ta_joke = get_random_tamil_joke()
-            await etho.edit_message_text(text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")
+            await etho.edit_message_text(text=f"{etho.from_user.mention} + " " + "random.choice(COMMENTS)")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
@@ -165,13 +188,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good evening" in etho.message.text.lower():
             print("Evening button clicked!")
+            await etho.edit_message_text(text="Getting your evening news    .")
+            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Getting your evening news   .")
+            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Getting your evening news  .")
+            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Getting your evening news .")
+            await asyncio.sleep(0.5)
             await etho.edit_message_text(text="Getting your evening news.")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news. .")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news. . .")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news. . . .")
             await asyncio.sleep(0.5)
             random_news = get_random_news()
             await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{random_news}")
