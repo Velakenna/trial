@@ -9,7 +9,7 @@ from pyrogram.types import Message, CallbackQuery
 from bs4 import BeautifulSoup
 from aiogram import types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from YukkiMusic.plugins.modules.blast import open_me_markup
+from YukkiMusic.plugins.modules.blast import open_me_markup, surprise_markup, click_me_markup, close_me_markup
 from typing import Union
 
 spam_chats = []
@@ -57,16 +57,20 @@ async def tagme_handler(client, message: Message):
     # Determine the appropriate tag message based on the time of day
     if current_time >= datetime.time(4, 0) and current_time < datetime.time(10, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
-        msg = f"Good morning 🌞"
+        msg = f"🌞 Good morning"
+        markup = open_me_markup()
     elif current_time >= datetime.time(10, 00) and current_time < datetime.time(15, 30):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
-        msg = f"Good afternoon 😊"
+        msg = f"😊 Good afternoon"
+        markup = surprise_markup()
     elif current_time >= datetime.time(15, 30) and current_time < datetime.time(20, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
-        msg = f"Good evening 👋"
+        msg = f"👋 Good evening"
+        markup = click_me_markup()
     else:
         #msg = random.choice(TAGMES) + " " + EMOJI[1]  # Good night
-        msg = f"Good night 🌙"
+        msg = f"🌙 Good night"
+        markup = close_me_markup()
     
     chat_id = message.chat.id
     if chat_id in spam_chats:
@@ -88,9 +92,8 @@ async def tagme_handler(client, message: Message):
         usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
         #usrtxt += f"{usr.user.mention}"
 
-        if usrnum == 1:
-            markup = open_me_markup()
-            tag_message = f"[{usr.user.first_name}](tg://user?id={usr.user.id}) {msg}"
+        if usrnum == 1:            
+            tag_message = f"{msg} [{usr.user.first_name}](tg://user?id={usr.user.id})"
             await message.reply_text(tag_message, reply_markup=markup)
             
             
