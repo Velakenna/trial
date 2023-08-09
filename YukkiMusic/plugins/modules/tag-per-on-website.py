@@ -71,7 +71,7 @@ def get_random_joke():
     data = response.json()
     return f"{data['setup']}\n{data['punchline']}"
 
-@app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@"]))
+@app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@", "!"]))
 async def tagu_handler(client, message: Message):
     # Set the desired time zone
     tz = pytz.timezone('Asia/Kolkata')
@@ -155,7 +155,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
         await etho.answer()
 
     else:
-        await etho.answer("Un button ah mattum click pannu da ve-nn-a")
+        await etho.answer("Un button ah mattum click pannu ve-nn-a")
 
 @app.on_callback_query(filters.regex("surprise"))
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
@@ -180,7 +180,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
         await etho.answer()
 
     else:
-        await etho.answer("Un button ah mattum click pannu da ve-nn-a")
+        await etho.answer("Un button ah mattum click pannu ve-nn-a")
 
 @app.on_callback_query(filters.regex("click_me"))
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
@@ -205,7 +205,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
         await etho.answer()
 
     else:
-        await etho.answer("Un button ah mattum click pannu da ve-nn-a")
+        await etho.answer("Un button ah mattum click pannu ve-nn-a")
 
 @app.on_callback_query(filters.regex("close_me"))
 async def on_open_me_button_click(client, etho: Union[types.Message, types.CallbackQuery]):
@@ -230,5 +230,5 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
         await etho.answer()
 
     else:
-        await etho.answer("Un button ah mattum click pannu da ve-nn-a")
+        await etho.answer("Un button ah mattum click pannu ve-nn-a")
     
