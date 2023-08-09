@@ -117,7 +117,7 @@ async def tagme_handler(client, message: Message):
 
         if usrnum == 1:            
             tag_message = f"{msg}\n[{usr.user.first_name}](tg://user?id={usr.user.id})"
-            await message.reply_text(tag_message, reply_markup=markup)
+            await message.send_text(tag_message, reply_markup=markup)
             
             
             # Generate a random sleep time between 10 and 30 seconds
