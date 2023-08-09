@@ -48,7 +48,7 @@ def generate_animation(effect):
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
         ]
-    return animation_frames
+  return animation_frames
 
 # Command to start the bot
 @app.on_message(filters.command("magic"))
