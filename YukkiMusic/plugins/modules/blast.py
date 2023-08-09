@@ -22,8 +22,7 @@ def open_me_markup():
             [
                 InlineKeyboardButton(
                     text=("Open me!"),
-                    callback_data=f"open_me",
-                    style="primary"
+                    callback_data=f"open_me",                    
                 )
             ]
         ]
