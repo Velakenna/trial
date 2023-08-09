@@ -165,8 +165,12 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good evening" in etho.message.text.lower():
             print("Evening button clicked!")
-            await etho.edit_message_text(text="Getting your evening news...")
-            await asyncio.sleep(2)
+            await etho.edit_message_text(text="Getting your evening news.")
+            await asyncio.sleep(0.8)
+            await etho.edit_message_text(text="Getting your evening news. .")
+            await asyncio.sleep(0.8)
+            await etho.edit_message_text(text="Getting your evening news. . .")
+            await asyncio.sleep(0.8)
             random_news = get_random_news()
             await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{random_news}")
 
