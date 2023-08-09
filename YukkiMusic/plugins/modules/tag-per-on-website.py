@@ -18,6 +18,12 @@ spam_chats = []
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
+def get_random_tamil_quote():
+    url = "https://api.thirukkural.io/random"
+    response = requests.get(url)
+    data = response.json()
+    return f"{data['kural']['ta']}\n- {data['kural']['chap']}.{data['kural']['sect']}"
+
 def get_random_quote():
     url = "https://quotes.toscrape.com/random"
     response = requests.get(url)
@@ -26,6 +32,12 @@ def get_random_quote():
     #author = soup.find("span", class_="author").text.strip()
     #return f"{quote}\n- {author}"
     return f"{quote}"
+    
+def get_random_tamil_joke():
+    url = "https://v2.jokeapi.dev/joke/Tamil"
+    response = requests.get(url)
+    data = response.json()
+    return f"{data['setup']}\n{data['delivery']}"
 
 def get_random_joke():
     url = "https://official-joke-api.appspot.com/random_joke"
@@ -40,13 +52,13 @@ async def tagme_handler(client, message: Message):
     # Get the current time
     current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
-    if current_time >= datetime.time(4, 0) and current_time < datetime.time(7, 45):
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(8, 20):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"Good morning 🌞"
-    elif current_time >= datetime.time(7, 45) and current_time < datetime.time(7, 50):
+    elif current_time >= datetime.time(8, 20) and current_time < datetime.time(8, 25):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"Good afternoon 😊"
-    elif current_time >= datetime.time(7, 50) and current_time < datetime.time(7, 55):
+    elif current_time >= datetime.time(8, 25) and current_time < datetime.time(8, 30):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"Good evening 👋"
     else:
@@ -101,7 +113,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     message_text = etho.message.text    
     
     if user_name in etho.message.text:
-        if "good morning" in etho.message.text:
+        if "good morning" in etho.message.text.lower():
             print("Morning button clicked!")
             await etho.edit_message_text(text="Getting your quote...")
             await asyncio.sleep(2)
@@ -110,17 +122,21 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
                 text=f"Good morning {etho.from_user.mention}! Here's a random quote:\n\n{quote}"
             )
 
-        elif "good afternoon" in etho.message.text:
+        elif "good afternoon" in etho.message.text.lower():
             print("Afternoon button clicked!")
-            await etho.edit_message_text(text="Getting your afternoon message...")
+            await etho.edit_message_text(text="Getting your afternoon joke...")
             await asyncio.sleep(2)
-            await etho.edit_message_text(text="Saaptingla? Enna pandringa?")
+            ta_joke = get_random_tamil_joke()
+            await etho.edit_message_text(
+                text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")
 
-        elif "good night" in etho.message.text:
+        elif "good night" in etho.message.text.lower():
             print("Night button clicked!")
             await etho.edit_message_text(text="Getting your night message...")
             await asyncio.sleep(2)
-            await etho.edit_message_text(text="Good night ghost dreams!")
+            ta_quote = get_random_tamil_quote()
+            await etho.edit_message_text(
+                text=f"Good night {etho.from_user.mention}! Here's a random Tamil quote\n\n{ta_quote}")
             
         else:
             print("Evening button clicked!")
