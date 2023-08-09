@@ -27,16 +27,3 @@ def open_me_markup():
         ]
     )
     return dei
-
-def effect_markup():
-    oii = InlineKeyboardMarkup(
-        [
-            [InlineKeyboardButton("Flowers", callback_data="flowers")],
-            [InlineKeyboardButton("Rockets", callback_data="rockets")],
-            [InlineKeyboardButton("Rain", callback_data="rain")],
-            [InlineKeyboardButton("Leaves", callback_data="leaves")],
-            [InlineKeyboardButton("Snow", callback_data="snow")],
-            [InlineKeyboardButton("Bombs", callback_data="bombs")],
-        ]
-    )
-    return oii
