@@ -147,7 +147,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Unga gift varuthu ◉   ╾╤╦")
             await asyncio.sleep(0.5)   
             joke = get_random_joke()            
-            await etho.edit_message_text(text=f"Kaalai vanakkam ley {etho.from_user.mention}!\nUngalukaana siripu vaithiyam itho 😁:\n\n{joke}")
+            await etho.edit_message_text(text=f"Kaalai vanakkam ley\n{etho.from_user.mention}!\nUngalukaana siripu vaithiyam itho 😁:\n\n{joke}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
@@ -167,12 +167,12 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good afternoon" in etho.message.text.lower():
             print("Afternoon button clicked!")
-            await etho.edit_message_text(text="waittt ! Vanthuduchi 🙈   ◉ ╾╤╦")
+            await etho.edit_message_text(text="waittt! Vanthuduchi 🙈   ◉ ╾╤╦")
             await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="waittt ! Vanthuduchi 🙈 ◉   ╾╤╦")
+            await etho.edit_message_text(text="waittt! Vanthuduchi 🙈 ◉   ╾╤╦")
             await asyncio.sleep(0.5)            
             comment = random.choice(COMMENTS)
-            await etho.edit_message_text(text=f"Matinee show vanakkam {etho.from_user.mention}\n┃\n╰━➮{comment}")
+            await etho.edit_message_text(text=f"Matinee show vanakkam\n{etho.from_user.mention}\n┃\n╰━➮{comment}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
@@ -192,12 +192,12 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good evening" in etho.message.text.lower():
             print("Evening button clicked!")
-            await etho.edit_message_text(text="Yunga moolai ku oru thagaval 😁   ◉ ╾╤╦")
+            await etho.edit_message_text(text="Yungalukku oru thagaval 😁   ◉ ╾╤╦")
             await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Yunga moolai ku oru thagaval 😁 ◉   ╾╤╦")
+            await etho.edit_message_text(text="Yungalukku oru thagaval 😁 ◉   ╾╤╦")
             await asyncio.sleep(0.5)   
             random_news = get_random_news()
-            await etho.edit_message_text(text=f"Maalai vanakkam {etho.from_user.mention}!\nUngaluku oru seithi :\n\n{random_news}")
+            await etho.edit_message_text(text=f"Maalai vanakkam\n{etho.from_user.mention}!\nUngaluku oru seithi :\n\n{random_news}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
@@ -222,7 +222,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Innaiku oru pazhamozhi ☺️ ◉   ╾╤╦")
             await asyncio.sleep(0.5)              
             quote = get_random_quote()
-            await etho.edit_message_text(text=f"Indha ley {etho.from_user.mention}!\nUnakku oru pazhamozhi :\n\n{quote}")
+            await etho.edit_message_text(text=f"Indha ley\n{etho.from_user.mention}!\nUnakku oru pazhamozhi :\n\n{quote}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
