@@ -18,7 +18,7 @@ TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
 def get_random_news():    
-    url = "https://newsapi.org/v2/top-headlines?country=in&language=ta&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"    
+    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"    
     response = requests.get(url)
     data = response.json()
 
