@@ -14,9 +14,27 @@ from typing import Union
 
 spam_chats = []
 
-#TAGMES = ["hi", "hello", "good morning", "good evening", "good night"]
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
+
+def get_random_news():
+    #url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
+    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=8b7f36dbfcdc4d43bf0a9df50243072a"
+    response = requests.get(url)
+    data = response.json()
+
+    if data['status'] == 'ok' and data['totalResults'] > 0:
+        articles = data['articles']
+        random_article = articles[random.randint(0, len(articles) - 1)]
+        title = random_article['title']
+        description = random_article['description']
+        source = random_article['source']['name']
+        url = random_article['url']
+
+        news_info = f"Title: {title}\nSource: {source}\nDescription: {description}\nURL: {url}"
+        return news_info
+    else:
+        return "Unable to fetch random news article.Better luck next time"        
 
 def get_random_tamil_quote():
     url = "https://api.thirukkural.io/random"
@@ -28,9 +46,7 @@ def get_random_quote():
     url = "https://quotes.toscrape.com/random"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
-    quote = soup.find("span", class_="text").text.strip()
-    #author = soup.find("span", class_="author").text.strip()
-    #return f"{quote}\n- {author}"
+    quote = soup.find("span", class_="text").text.strip()    
     return f"{quote}"
     
 def get_random_tamil_joke():
@@ -134,9 +150,10 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             print("Night button clicked!")
             await etho.edit_message_text(text="Getting your night message...")
             await asyncio.sleep(2)
-            ta_quote = get_random_tamil_quote()
+            #ta_quote = get_random_tamil_quote()
+            random_news = get_random_news()
             await etho.edit_message_text(
-                text=f"Good night {etho.from_user.mention}! Here's a random Tamil quote\n\n{ta_quote}")
+                text=f"Good night {etho.from_user.mention}! Here's a random Tamil quote\n\n{random_news}")
             
         else:
             print("Evening button clicked!")
