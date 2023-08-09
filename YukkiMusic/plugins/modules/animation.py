@@ -57,15 +57,13 @@ def magic(client, message):
 
 # Callback function for button clicks
 @app.on_callback_query()
-def button_click(client, callback_query):
-    chat_id = callback_query.chat.id
+def button_click(client, callback_query):    
     effect = callback_query.data
     animation_frames = generate_animation(effect)
 
     # Send animation frames to the user
     for frame in animation_frames:
-        client.send_animation(
-          chat_id=chat_id,
+        client.send_animation(          
           animation=frame,
           width=100,  # Adjust width as needed
           height=100,  # Adjust height as needed
