@@ -78,11 +78,11 @@ async def tagme_handler(client, message: Message):
     # Get the current time
     current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
-    if current_time >= datetime.time(4, 0) and current_time < datetime.time(10, 00):
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(22, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"🌞 Good morning"
         markup = open_me_markup()
-    elif current_time >= datetime.time(19, 00) and current_time < datetime.time(22, 30):
+    elif current_time >= datetime.time(22, 00) and current_time < datetime.time(22, 30):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"😊 Good afternoon"
         markup = surprise_markup()
@@ -142,8 +142,10 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good morning" in etho.message.text.lower():
             print("Morning button clicked!")
-            await etho.edit_message_text(text="Getting your joke...")
-            await asyncio.sleep(2)
+            await etho.edit_message_text(text="Request on progress   ◉ ╾╤╦")
+            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Request on progress ◉   ╾╤╦")
+            await asyncio.sleep(0.5)   
             joke = get_random_joke()            
             await etho.edit_message_text(text=f"Good morning {etho.from_user.mention}! Here's a random joke:\n\n{joke}")
 
@@ -190,16 +192,10 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good evening" in etho.message.text.lower():
             print("Evening button clicked!")
-            await etho.edit_message_text(text="Getting your evening news    .")
+            await etho.edit_message_text(text="Yunga moolai ku oru thagaval 😁   ◉ ╾╤╦")
             await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news   .")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news  .")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news .")
-            await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Getting your evening news.")
-            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Yunga moolai ku oru thagaval 😁 ◉   ╾╤╦")
+            await asyncio.sleep(0.5)   
             random_news = get_random_news()
             await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{random_news}")
 
@@ -221,8 +217,10 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good night" in etho.message.text.lower():
             print("Night button clicked!")
-            await etho.edit_message_text(text="Getting your night facts...")
-            await asyncio.sleep(2)            
+            await etho.edit_message_text(text="Innaiku oru pazhamozhi ☺️   ◉ ╾╤╦")
+            await asyncio.sleep(0.5)
+            await etho.edit_message_text(text="Innaiku oru pazhamozhi ☺️ ◉   ╾╤╦")
+            await asyncio.sleep(0.5)              
             quote = get_random_quote()
             await etho.edit_message_text(text=f"Good night {etho.from_user.mention}! Here's a random quote\n\n{quote}")
 
