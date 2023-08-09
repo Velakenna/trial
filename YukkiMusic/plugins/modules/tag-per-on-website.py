@@ -78,11 +78,11 @@ async def tagu_handler(client, message: Message):
     # Get the current time
     current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
-    if current_time >= datetime.time(4, 0) and current_time < datetime.time(22, 30):
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(22, 29):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"🌞 Good morning"
         markup = open_me_markup()
-    elif current_time >= datetime.time(22, 30) and current_time < datetime.time(23, 00):
+    elif current_time >= datetime.time(22, 29) and current_time < datetime.time(23, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"😊 Good afternoon"
         markup = surprise_markup()
