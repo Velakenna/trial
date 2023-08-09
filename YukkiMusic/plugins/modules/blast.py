@@ -40,3 +40,4 @@ def effect_markup():
             [InlineKeyboardButton("Bombs", callback_data="bombs")],
         ]
     )
+    return oii
