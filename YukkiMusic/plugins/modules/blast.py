@@ -19,10 +19,10 @@ def blast_markup():
 def open_me_markup():
     dei = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton(text=("[ ᴏᴘᴇɴ ᴍᴇ ! ]"),callback_data=f"open_me")],
-            [InlineKeyboardButton(text=("[ surprise ! ]"),callback_data=f"surprise")],
-            [InlineKeyboardButton(text=("[ click ᴍᴇ ! ]"),callback_data=f"click_me")],
-            [InlineKeyboardButton(text=("[ close ᴍᴇ ! ]"),callback_data=f"close_me")],
+            [InlineKeyboardButton(text=("🌻 • ⃤•  ᴏᴘᴇɴ ᴍᴇ ! • ⃤• 🌞"),callback_data=f"open_me")],
+            [InlineKeyboardButton(text=("🥱 • ⃤•  Sυɾ-Pɾιȥҽ ! • ⃤• 🥴"),callback_data=f"surprise")],
+            [InlineKeyboardButton(text=("☕️ •̴ ⃤̴•̴  C̴l̴i̴c̴k̴-̴M̴e̴ ! •̴ ⃤̴•̴  🍔"),callback_data=f"click_me")],
+            [InlineKeyboardButton(text=("🌜• ⃤•  ｃĻ𝕠รє-Μ𝐞 ! • ⃤• 🌝"),callback_data=f"close_me")],
             
         ]
     )
