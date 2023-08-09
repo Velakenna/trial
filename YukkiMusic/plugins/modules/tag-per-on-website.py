@@ -74,7 +74,7 @@ async def tagme_handler(client, message: Message):
     elif current_time >= datetime.time(8, 20) and current_time < datetime.time(10, 45):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"Good afternoon 😊"
-    elif current_time >= datetime.time(10, 45) and current_time < datetime.time(10, 55):
+    elif current_time >= datetime.time(10, 45) and current_time < datetime.time(10, 48):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"Good evening 👋"
     else:
