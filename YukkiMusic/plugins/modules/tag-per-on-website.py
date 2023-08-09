@@ -117,7 +117,7 @@ async def tagu_handler(client, message: Message):
 
         if usrnum == 1:            
             tag_message = f"{msg}\n[{usr.user.first_name}](tg://user?id={usr.user.id})"
-            await app.send_message(tag_message, reply_markup=markup)
+            await message.reply_text(tag_message, reply_markup=markup)
             
             
             # Generate a random sleep time between 10 and 30 seconds
