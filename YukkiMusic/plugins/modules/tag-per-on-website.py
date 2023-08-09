@@ -78,11 +78,11 @@ async def tagu_handler(client, message: Message):
     # Get the current time
     current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
-    if current_time >= datetime.time(4, 0) and current_time < datetime.time(22, 45):
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(22, 41):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"🌞 Good morning"
         markup = open_me_markup()
-    elif current_time >= datetime.time(22, 45) and current_time < datetime.time(23, 00):
+    elif current_time >= datetime.time(22, 41) and current_time < datetime.time(23, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"😊 Good afternoon"
         markup = surprise_markup()
@@ -147,7 +147,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Unga gift varuthu ◉   ╾╤╦")
             await asyncio.sleep(0.5)   
             joke = get_random_joke()            
-            await etho.edit_message_text(text=f"Kaalai vanakkam ley\n{etho.from_user.mention}!\nUngalukaana siripu vaithiyam itho 😁:\n┃\n╰➪{joke}")
+            await etho.edit_message_text(text=f"Kaalai vanakkam ley\n{etho.from_user.mention}!\nUngalukaana siripu vaithiyam itho 😁:\n┃\n╰➪ {joke}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}!\nMannichidunga.. yetho thavaru nadanthu vitathu 🔫 ")
