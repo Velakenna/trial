@@ -72,7 +72,7 @@ def get_random_joke():
     return f"{data['setup']}\n{data['punchline']}"
 
 @app.on_message(filters.command(["tagu"], prefixes=["/", "#", "@"]))
-async def tagme_handler(client, message: Message):
+async def tagu_handler(client, message: Message):
     # Set the desired time zone
     tz = pytz.timezone('Asia/Kolkata')
     # Get the current time
@@ -97,7 +97,7 @@ async def tagme_handler(client, message: Message):
     
     chat_id = message.chat.id
     if chat_id in spam_chats:
-        await message.reply("The tagme command is already running in this chat.")
+        await message.reply("Tagu command already oditu irukku paarunga!")
         return
 
     spam_chats.append(chat_id)
