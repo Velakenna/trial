@@ -168,7 +168,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Getting your surprise...")
             await asyncio.sleep(2)
             comment = random.choice(COMMENTS)
-            await etho.edit_message_text(text=f"{etho.from_user.mention}\n{comment})
+            await etho.edit_message_text(text=f"{etho.from_user.mention}\n{comment}")
 
         else:
             await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
