@@ -6,6 +6,7 @@ from YukkiMusic.plugins.modules.blast import effect_markup
 
 # Animation code (similar to your provided code)
 def generate_animation(effect):
+  animation_frames = []
   effect = random.choice(["flowers", "rockets", "rain", "leaves", "snow", "bombs"]) 
  
     # Create the animation 
@@ -46,7 +47,8 @@ def generate_animation(effect):
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
             {"x": random.randint(0, 100), "y": random.randint(0, 100), "duration": 1}, 
-        ]  
+        ]
+    return animation_frames
 
 # Command to start the bot
 @app.on_message(filters.command("magic"))
