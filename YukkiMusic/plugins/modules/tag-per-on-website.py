@@ -50,7 +50,7 @@ def get_random_quote():
     return f"{quote}"
     
 def get_random_tamil_joke():
-    url = "https://v2.jokeapi.dev/joke/Tamil"
+    url = "https://panotbook.com/kadi-jokes-in-tamil-with-answers/"
     response = requests.get(url)
     data = response.json()
     return f"{data['setup']}\n{data['delivery']}"
@@ -71,10 +71,10 @@ async def tagme_handler(client, message: Message):
     if current_time >= datetime.time(4, 0) and current_time < datetime.time(8, 20):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"Good morning 🌞"
-    elif current_time >= datetime.time(8, 20) and current_time < datetime.time(8, 25):
+    elif current_time >= datetime.time(8, 20) and current_time < datetime.time(10, 45):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"Good afternoon 😊"
-    elif current_time >= datetime.time(8, 25) and current_time < datetime.time(8, 30):
+    elif current_time >= datetime.time(10, 45) and current_time < datetime.time(10, 55):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"Good evening 👋"
     else:
