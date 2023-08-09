@@ -217,9 +217,9 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     if user_name in etho.message.text:
         if "good night" in etho.message.text.lower():
             print("Night button clicked!")
-            await etho.edit_message_text(text="Innaiku oru pazhamozhi ☺️   ◉ ╾╤╦")
+            await etho.edit_message_text(text="Last ah onnu ☺️   ◉ ╾╤╦")
             await asyncio.sleep(0.5)
-            await etho.edit_message_text(text="Innaiku oru pazhamozhi ☺️ ◉   ╾╤╦")
+            await etho.edit_message_text(text="Last ah onnu ☺️ ◉   ╾╤╦")
             await asyncio.sleep(0.5)              
             quote = get_random_quote()
             await etho.edit_message_text(text=f"Indha ley\n{etho.from_user.mention}!\nUnakku oru pazhamozhi :\n\n{quote}")
