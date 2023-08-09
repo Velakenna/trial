@@ -7,7 +7,7 @@ import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message, CallbackQuery
 from bs4 import BeautifulSoup
-from aiogram import Bot, Dispatcher, types
+from aiogram import types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from YukkiMusic.plugins.modules.blast import open_me_markup
 from typing import Union
@@ -55,13 +55,13 @@ async def tagme_handler(client, message: Message):
     # Get the current time
     current_time = datetime.datetime.now(tz).time()
     # Determine the appropriate tag message based on the time of day
-    if current_time >= datetime.time(4, 0) and current_time < datetime.time(8, 20):
+    if current_time >= datetime.time(4, 0) and current_time < datetime.time(10, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[2]  # Good morning
         msg = f"Good morning 🌞"
-    elif current_time >= datetime.time(8, 20) and current_time < datetime.time(10, 45):
+    elif current_time >= datetime.time(10, 00) and current_time < datetime.time(15, 30):
         #msg = random.choice(TAGMES) + " " + EMOJI[3]  # Good afternoon
         msg = f"Good afternoon 😊"
-    elif current_time >= datetime.time(10, 45) and current_time < datetime.time(10, 48):
+    elif current_time >= datetime.time(15, 30) and current_time < datetime.time(20, 00):
         #msg = random.choice(TAGMES) + " " + EMOJI[0]  # Good evening
         msg = f"Good evening 👋"
     else:
