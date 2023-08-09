@@ -114,12 +114,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     message_text = etho.message.text    
     
     if user_name in etho.message.text:
-        for "good morning" in etho.message.text.lower():
+        if "good morning" in etho.message.text.lower():
             print("Morning button clicked!")
             await etho.edit_message_text(text="Getting your quote...")
             await asyncio.sleep(2)
             joke = get_random_joke()            
-            await etho.edit_message_text(text=f"Good morning {etho.from_user.mention}! Here's a random joke:\n\n{joke}")        
+            await etho.edit_message_text(text=f"Good morning {etho.from_user.mention}! Here's a random joke:\n\n{joke}")
+
+        else:
+            await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
 
         await etho.answer()
 
@@ -134,12 +137,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     message_text = etho.message.text    
     
     if user_name in etho.message.text:
-        for "good afternoon" in etho.message.text.lower():
+        if "good afternoon" in etho.message.text.lower():
             print("Afternoon button clicked!")
             await etho.edit_message_text(text="Getting your afternoon joke...")
             await asyncio.sleep(2)
             ta_joke = get_random_tamil_joke()
-            await etho.edit_message_text(text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")        
+            await etho.edit_message_text(text=f"Good afternoon {etho.from_user.mention}! Here's a random Tamil joke:\n\n{ta_joke}")
+
+        else:
+            await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
 
         await etho.answer()
 
@@ -154,12 +160,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     message_text = etho.message.text    
     
     if user_name in etho.message.text:
-        for "good night" in etho.message.text.lower():
+        if "good night" in etho.message.text.lower():
             print("Night button clicked!")
             await etho.edit_message_text(text="Getting your night facts...")
             await asyncio.sleep(2)            
             quote = get_random_quote()
-            await etho.edit_message_text(text=f"Good night {etho.from_user.mention}! Here's a random quote\n\n{quote}")    
+            await etho.edit_message_text(text=f"Good night {etho.from_user.mention}! Here's a random quote\n\n{quote}")
+
+        else:
+            await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
 
         await etho.answer()
 
@@ -174,12 +183,15 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
     message_text = etho.message.text    
     
     if user_name in etho.message.text:
-        for "good night" in etho.message.text.lower():
+        if "good evening" in etho.message.text.lower():
             print("Evening button clicked!")
             await etho.edit_message_text(text="Getting your evening news...")
             await asyncio.sleep(2)
             random_news = get_random_news()
-            await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{random_news}")       
+            await etho.edit_message_text(text=f"Good evening {etho.from_user.mention}! Here's a random news:\n\n{random_news}")
+
+        else:
+            await etho.edit_message_text(text=f"Hey {etho.from_user.mention}! Sorry some error occured")
 
         await etho.answer()
 
