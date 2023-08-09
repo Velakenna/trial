@@ -17,7 +17,7 @@ spam_chats = []
 TAGMES = ["good morning", "good evening", "good night", "good afternoon"]
 EMOJI = ["😊", "👋", "🌞", "🌙"]
 
-def get_random_news(categories):
+def get_random_news():
     categories = ['technology', 'business', 'science']  # Specify the desired categories
     selected_category = random.choice(categories)
     #url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
@@ -154,7 +154,7 @@ async def on_open_me_button_click(client, etho: Union[types.Message, types.Callb
             await etho.edit_message_text(text="Getting your night message...")
             await asyncio.sleep(2)
             #ta_quote = get_random_tamil_quote()
-            random_news = get_random_news(categories)
+            random_news = get_random_news()
             await etho.edit_message_text(
                 text=f"Good night {etho.from_user.mention}! Here's a random Tamil quote\n\n{random_news}")
             
