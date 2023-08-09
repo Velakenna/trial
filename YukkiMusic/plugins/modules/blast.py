@@ -24,7 +24,7 @@ def surprise_markup():
             [InlineKeyboardButton(text=("🥱 • ⃤•  Sυɾ-Pɾιȥҽ ! • ⃤• 🥴"),callback_data=f"surprise")]
         ]
     )
-    return oii
+    return oi
 
 def click_me_markup():
     hey = InlineKeyboardMarkup(
