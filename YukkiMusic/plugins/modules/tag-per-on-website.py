@@ -11,6 +11,9 @@ from aiogram import types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from YukkiMusic.plugins.modules.blast import open_me_markup, surprise_markup, click_me_markup, close_me_markup
 from typing import Union
+from YukkiMusic.utils.database import get_client
+from YukkiMusic.core.userbot import assistants
+
 
 spam_chats = []
 
@@ -117,7 +120,9 @@ async def tagu_handler(client, message: Message):
 
         if usrnum == 1:            
             tag_message = f"{msg}\n[{usr.user.first_name}](tg://user?id={usr.user.id})"
-            await client.send_message(chat_id, tag_message, reply_markup=markup)
+            for num in assistants:
+                app = await get_client(num)
+            await app.send_message(chat_id, tag_message, reply_markup=markup)
             
             
             # Generate a random sleep time between 10 and 30 seconds
