@@ -4,6 +4,9 @@ import random
 from pyrogram import Client, filters
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import ChatPermissions
+from YukkiMusic.utils.database import get_client
+from YukkiMusic.core.userbot import assistants
+#from pyrogram.enums import ChatMemberStatus
 
 spam_chats = []
 
@@ -179,8 +182,10 @@ async def mentionall(client, message):
 
         if usrnum == 1:
             if mode == "text_on_cmd":
+                for num in assistants:
+                      app = await get_client(num)
                 txt = f"{usrtxt} {random.choice(TAGMES)}"
-                await client.send_message(chat_id, txt)
+                await app.send_message(chat_id, txt)
             elif mode == "text_on_reply":
                 await msg.reply(f"[{random.choice(EMOJI)}](tg://user?id={usr.user.id})")
             await asyncio.sleep(4)
